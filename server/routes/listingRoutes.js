@@ -2,9 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  createListing,
-  getAllListings,
-  getListingById,
+  createListing, getAllListings, getListingById,
 } = require("../controllers/listingController");
 
 const protect = require("../middleware/authMiddleware");

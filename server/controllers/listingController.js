@@ -1,13 +1,14 @@
 const Listing = require("../models/listingModel");
 const User = require("../models/userModel");
 
+
 // Create a listing
 const createListing = async (req, res) => {
   try {
     const { title, location, imageUrl, description, price } = req.body;
 
     if (!title || !location || !imageUrl || !description) {
-      return res.status(400).json({ message: "All fields except price are required" });
+      return res.status(400).json({ message: "All the fields are required" });
     }
 
     const listing = await Listing.create({
@@ -54,7 +55,5 @@ const getListingById = async (req, res) => {
 };
 
 module.exports = {
-  createListing,
-  getAllListings,
-  getListingById,
+  createListing, getAllListings, getListingById,
 };
