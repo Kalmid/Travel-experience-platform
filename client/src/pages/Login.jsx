@@ -11,15 +11,12 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      // Call backend login API
       const res = await API.post("/auth/login", { email, password });
 
-      // Save token to localStorage
       localStorage.setItem("token", res.data.token);
 
       alert("Login successful!");
 
-      // Redirect to feed
       navigate("/feed");
     } catch (err) {
       console.error(err);
@@ -39,8 +36,7 @@ const Login = () => {
             className="border p-2 rounded"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+            required />
 
           <input
             type="password"
@@ -48,8 +44,7 @@ const Login = () => {
             className="border p-2 rounded"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+            required />
 
           <button className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
             Login
